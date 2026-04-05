@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Aruomote Lab</title>
+  <meta name="description" content="Aruomote Labについて。サイトの概要と管理人情報。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <main>
+    <div class="page-header">
+      <h1 class="page-title">About</h1>
+    </div>
+
+    <section class="section">
+      <div class="about-card" style="max-width: 720px;">
+        <h3><i class="fa-solid fa-user"></i> 管理人について</h3>
+        <p>AIを固めに活用した創作に取り組んでいます。画像生成、ゲーム開発、文章執筆など、さまざまな形式で制作活動を行っています。</p>
+      </div>
+    </section>
+
+    <!-- External Links -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-arrow-up-right-from-square"></i> 外部リンク</h2>
+      </div>
+      <div class="link-chips">
+        <a href="https://x.com/aruomoteomote" target="_blank" rel="noopener noreferrer" class="link-chip"><i
+            class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+        <a href="https://www.pixiv.net/users/6813502" target="_blank" rel="noopener noreferrer" class="link-chip"><i
+            class="fa-solid fa-paintbrush"></i> pixiv</a>
+        <a href="https://github.com/aruomote" target="_blank" rel="noopener noreferrer" class="link-chip"><i
+            class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://note.com/aruomote" target="_blank" rel="noopener noreferrer" class="link-chip"><i
+            class="fa-solid fa-pen-nib"></i> note</a>
+        <a href="https://www.dlsite.com/aix/circle/profile/=/maker_id/RG01022046.html" target="_blank"
+          rel="noopener noreferrer" class="link-chip"><i class="fa-solid fa-store"></i> DLsite</a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { renderHeader, renderFooter } from '/main.js';
+    renderHeader('About');
+    renderFooter();
+  </script>
+</body>
+
+</html>

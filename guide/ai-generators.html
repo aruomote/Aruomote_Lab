@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>固め向け画像生成AIサービス比較 — Aruomote Lab</title>
+  <meta name="description" content="画像生成AIサービスを固め向けに比較したページです。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .chart-section {
+      max-width: 900px;
+      margin: 2rem auto 1.5rem;
+      padding: 0 2rem;
+    }
+
+    .chart-helper-text {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.05rem;
+      max-width: 720px;
+      margin: 0 auto 2rem;
+      color: var(--text-primary);
+      background: var(--bg-card);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .chart-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 720px;
+      margin: 0 auto;
+      background: #fafbfc;
+      border-radius: var(--radius);
+      padding: 2rem 2rem 3rem 3rem;
+      /* top, right, bottom, left */
+      border: 1px solid var(--border);
+    }
+
+    /* SVG Base */
+    .svg-chart {
+      width: 100%;
+      height: auto;
+      /* default viewBox 100x100 means 1:1 aspect ratio natively */
+      overflow: visible;
+    }
+
+    /* Axes Layout */
+    .y-axis-label {
+      position: absolute;
+      top: 50%;
+      left: 0.75rem;
+      transform: translateY(-50%) rotate(-90deg);
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    .x-axis-label {
+      position: absolute;
+      bottom: 0.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-weight: 600;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+    }
+
+    /* SVG Ellipses */
+    .service-ellipse {
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .service-ellipse:hover {
+      fill-opacity: 0.25;
+      stroke-width: 1.5;
+    }
+
+    .service-ellipse:hover~.tooltip-group,
+    .service-ellipse:focus~.tooltip-group {
+      opacity: 1;
+    }
+
+    /* SVG Text Annotations */
+    .chart-title {
+      font-family: var(--font-sans);
+      font-weight: 700;
+      font-size: 2px;
+      fill: var(--text-primary);
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    .chart-sub {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      font-size: 1.4px;
+      fill: var(--text-secondary);
+      text-anchor: middle;
+      pointer-events: none;
+    }
+
+    /* SVG Tooltips Setup (Pseudo interactive) */
+    .tooltip-group {
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+
+    .tooltip-bg {
+      fill: var(--bg-card);
+      stroke: var(--border);
+      stroke-width: 0.3;
+      rx: 1;
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.15));
+    }
+
+    .tooltip-text {
+      font-family: var(--font-sans);
+      font-size: 1.6px;
+      fill: var(--text-primary);
+      font-weight: 500;
+    }
+
+    /* Define Hover Triggers for tooltips */
+    .area-group:hover .tooltip-group {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      .chart-wrapper {
+        padding: 1.5rem 1rem 2rem 2rem;
+      }
+
+      .y-axis-label {
+        left: 0.25rem;
+        font-size: 0.8rem;
+      }
+
+      .x-axis-label {
+        bottom: 0.25rem;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <div class="page-header" style="max-width: 900px;">
+      <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+        <span class="tag" style="margin: 0;"><i class="fa-solid fa-chart-bar"></i> Analysis</span>
+        <span style="color: var(--text-muted); font-size: 0.85rem; font-weight: 500;"><i
+            class="fa-regular fa-clock"></i> 情報更新日: 2026年4月</span>
+      </div>
+      <h1 class="page-title">固め向け画像生成AIサービス比較</h1>
+    </div>
+
+    <section class="chart-section">
+      <div class="chart-helper-text">
+        結論：迷ったらまず Nano Banana Pro！<br>
+        NSFWを重視するなら NovelAI・PixAI・ローカル生成を検討。
+      </div>
+
+      <div class="chart-wrapper">
+        <div class="y-axis-label">完成度</div>
+        <div class="x-axis-label">NSFW対応</div>
+
+        <!-- SVG viewbox: cut off empty bottom space by changing height to 75 -->
+        <svg class="svg-chart" viewBox="0 0 100 75">
+
+          <!-- Background Grid & Axes Lines -->
+          <!-- X axis -->
+          <line x1="5" y1="70" x2="98" y2="70" stroke="#ccc" stroke-width="0.5" marker-end="url(#arrow)" />
+          <!-- Y axis -->
+          <line x1="5" y1="70" x2="5" y2="2" stroke="#ccc" stroke-width="0.5" marker-end="url(#arrow)" />
+
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4"
+              orient="auto-start-reverse">
+              <path d="M 0 0 L 10 5 L 0 10 z" fill="#ccc" />
+            </marker>
+          </defs>
+
+          <!-- We keep relative coords 0..100. SVGs top=0 so y=100-Y. -->
+
+          <!-- 1. Nano Banana Pro (Left-Top) -->
+          <!-- center: X=22, Y=78 -> SVG cx=22, cy=22. R: rx=8, ry=13 -->
+          <a href="#nano-banana" style="text-decoration: none;">
+            <g class="area-group">
+              <ellipse class="service-ellipse" cx="22" cy="22" rx="8" ry="13" fill="#4a5acd" fill-opacity="0.1"
+                stroke="#4a5acd" stroke-width="0.8" />
+              <text class="chart-title">
+                <tspan x="22" y="20">Nano Banana</tspan>
+                <tspan x="22" y="22.5">Pro</tspan>
+              </text>
+              <text x="22" y="25" class="chart-sub">まず試す本命</text>
+              <!-- Tooltip -->
+              <g class="tooltip-group">
+                <rect class="tooltip-bg" x="22" y="3" width="35.5" height="5" />
+                <text class="tooltip-text" x="24" y="6.5">現状の最強モデル。まず最初に試したい。</text>
+              </g>
+            </g>
+          </a>
+
+          <!-- 2. NovelAI (Center-Right, Mid-Top) -->
+          <!-- center: X=56, Y=68 -> SVG cx=56, cy=32. R: rx=11, ry=11 -->
+          <a href="#novelai" style="text-decoration: none;">
+            <g class="area-group">
+              <ellipse class="service-ellipse" cx="56" cy="32" rx="11" ry="11" fill="#c0623a" fill-opacity="0.1"
+                stroke="#c0623a" stroke-width="0.8" />
+              <text x="56" y="31" class="chart-title">NovelAI</text>
+              <text x="56" y="34" class="chart-sub">独自チューニングの専用機</text>
+              <!-- Tooltip -->
+              <g class="tooltip-group">
+                <rect class="tooltip-bg" x="35" y="15" width="31" height="5" />
+                <text class="tooltip-text" x="37" y="18.5">二次元向けの独自チューニングが強み。</text>
+              </g>
+            </g>
+          </a>
+
+          <!-- 3. PixAI (Right of NovelAI) -->
+          <!-- center: X=72, Y=64 -> SVG cx=72, cy=36. R: rx=15, ry=10 -->
+          <a href="#pixai" style="text-decoration: none;">
+            <g class="area-group">
+              <ellipse class="service-ellipse" cx="72" cy="36" rx="12" ry="15" fill="#288a7a" fill-opacity="0.1"
+                stroke="#288a7a" stroke-width="0.8" />
+
+              <text x="72" y="35" class="chart-title">PixAI</text>
+              <text x="72" y="38" class="chart-sub">二次元向けの拡張型</text>
+              <!-- Tooltip -->
+              <g class="tooltip-group">
+                <rect class="tooltip-bg" x="35" y="48" width="40" height="5" />
+                <text class="tooltip-text" x="37" y="51.5">二次元向けで、モデルやLoRAの自由度が高い。</text>
+              </g>
+            </g>
+          </a>
+
+          <!-- 4. ローカル生成 (Right-Most) -->
+          <!-- center: X=88, Y=60 -> SVG cx=88, cy=40. R: rx=16, ry=22 -->
+          <a href="#local" style="text-decoration: none;">
+            <g class="area-group">
+              <ellipse class="service-ellipse" cx="88" cy="36" rx="8" ry="20" fill="#8e44ad" fill-opacity="0.1"
+                stroke="#8e44ad" stroke-width="0.8" />
+              <!-- position label at the top or bottom of ellipse to avoid overlapping NovelAI/PixAI overly -->
+              <text x="88" y="36" class="chart-title">ローカル生成</text>
+              <text x="88" y="39.5" class="chart-sub">最大自由度</text>
+              <!-- Tooltip -->
+              <g class="tooltip-group">
+                <rect class="tooltip-bg" x="43" y="60" width="32" height="5" />
+                <text class="tooltip-text" x="45" y="63.5">最大自由度。ただし手間も大きい。</text>
+              </g>
+            </g>
+          </a>
+
+        </svg>
+
+      </div>
+    </section>
+
+    <!-- Detailed Explanation Section -->
+    <section class="article-content" style="max-width: 800px; margin: 0 auto; padding: 2rem;">
+      <style>
+        .article-content h2 {
+          font-size: 1.5rem;
+          margin-top: 1rem;
+          margin-bottom: 1.5rem;
+          border-bottom: 2px solid var(--border);
+          padding-bottom: 0.5rem;
+        }
+
+        .article-content h3 {
+          font-size: 1.25rem;
+          color: var(--accent);
+          margin-top: 2rem;
+          margin-bottom: 1rem;
+          scroll-margin-top: 100px;
+          /* 固定ヘッダー避け */
+        }
+
+        .article-content p {
+          line-height: 1.8;
+          color: var(--text-secondary);
+          margin-bottom: 1rem;
+        }
+
+        .article-content ul {
+          padding-left: 1.5rem;
+          color: var(--text-secondary);
+          line-height: 1.8;
+        }
+
+        .article-content li {
+          margin-bottom: 0.5rem;
+        }
+      </style>
+
+      <h2>各サービスの特徴</h2>
+
+      <h3 id="nano-banana">Nano Banana Pro</h3>
+      <p><strong>まず最初に試す本命。</strong><br>
+        生成品質が高く、エロにこだわらないのであればもっともオススメです。<br>
+        二次元と三次元どちらにも対応しています。</p>
+      <p>ただし、NSFW表現はほぼ生成拒否されます。誤魔化したりゴリ押ししたりすれば生成してくれることもありますが、あまりオススメはしません。</p>
+
+      <h3 id="novelai">NovelAI</h3>
+      <p><strong>二次元特化の専用機。</strong><br>
+        NovelAI独自のチューニングがあり、他では出しにくい絵が出るのが強みです。<br>
+        NSFW表現を出せます。実写風には向きません。<br>
+        手軽に生成できる反面、自由度はやや低めです。</p>
+
+      <h3 id="pixai">PixAI</h3>
+      <p><strong>ローカルはハードル高いけど色々試行錯誤したい。</strong><br>
+        モデルやLoRAが色々選べます。自分である程度自由に調整したい人に向いています。<br>
+        NSFW表現を出せます。実写風には向きません。<br>
+        ただし、NovelAIの上位互換というわけではありません。NovelAIは独自の絵作り、PixAIは拡張性の広さが強みです。</p>
+
+      <h3 id="local">ローカル生成</h3>
+      <p><strong>探求者。</strong><br>
+        モデル、LoRA、細かい調整まで自分で握れるので、最終的な自由度は一番高いです。<br>
+        その代わり、手間はもっともかかります。一定以上のGPUも必要になります。<br>
+        AI固めをとことん探求したい人向けです。</p>
+
+      <h2 style="margin-top: 4rem;">画像生成AIの費用体系</h2>
+
+      <h3>定額サブスク型</h3>
+      <p>毎月定額で使うタイプです。<br>
+        1回ごとの消費をあまり気にせず、気軽に使いやすいのが強みです。</p>
+      <p><strong>代表例</strong></p>
+      <ul>
+        <li>Gemini（Nano Banana 2 / Nano Banana Pro）</li>
+        <li>NovelAI</li>
+      </ul>
+
+      <h3>クレジット型</h3>
+      <p>毎月一定のクレジットが付与されるタイプです。<br>
+        使う量やタイミングを調整しやすく、必要に応じて追加購入できる場合もあります。</p>
+      <p><strong>代表例</strong></p>
+      <ul>
+        <li>PixAI</li>
+        <li>Comfy Cloud</li>
+      </ul>
+
+      <h3>API型</h3>
+      <p>使った分だけ課金される従量課金型です。<br>
+        自動化やツールへの組み込みに向いています。</p>
+      <p><strong>代表例</strong></p>
+      <ul>
+        <li>Gemini API</li>
+        <li>Seedream API</li>
+        <li>FLUX API</li>
+      </ul>
+
+      <h3>ローカル生成</h3>
+      <p>生成ごとの外部課金が基本ないタイプです。<br>
+        自由度は高いですが、PCやGPU等の初期費用がかかります。</p>
+      <p><strong>代表例</strong></p>
+      <ul>
+        <li>Qwen系</li>
+        <li>Stable Diffusion系</li>
+        <li>FLUX系</li>
+      </ul>
+
+    </section>
+
+  </main>
+
+  <script type="module">
+    import { renderHeader, renderFooter } from '/main.js';
+    renderHeader('Guide');
+    renderFooter();
+  </script>
+</body>
+
+</html>

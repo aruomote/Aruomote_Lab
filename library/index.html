@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library — Aruomote Lab</title>
+  <meta name="description" content="固めとAIについて考えたアレコレの置き場">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <main>
+    <div class="page-header">
+      <h1 class="page-title">Library</h1>
+      <p class="page-desc">固めとAIについて考えたアレコレの置き場です。</p>
+    </div>
+
+    <section class="section">
+      <!-- Category Filter -->
+      <div class="filter-bar" id="library-filter">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="essays"><i class="fa-solid fa-pen-fancy"></i> Essays</button>
+        <button class="filter-btn" data-filter="notes"><i class="fa-solid fa-sticky-note"></i> Notes</button>
+        <button class="filter-btn" data-filter="concepts"><i class="fa-solid fa-lightbulb"></i> Concepts</button>
+        <button class="filter-btn" data-filter="archives"><i class="fa-solid fa-box-archive"></i> Archives</button>
+      </div>
+
+      <!-- Articles List -->
+      <div class="card-grid cols-2" id="library-grid">
+        <a class="h-card" href="#" data-category="essays">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>固め表現と創作の関係性</h4>
+            <p>固め表現がどのように創作に影響を与えるかを考察する</p>
+            <span class="tag"><i class="fa-solid fa-pen-fancy"></i> Essay</span>
+          </div>
+        </a>
+        <a class="h-card" href="#" data-category="essays">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>AI時代の創作における「意図」</h4>
+            <p>AIを使った制作において「意図」はどう変わるのか</p>
+            <span class="tag"><i class="fa-solid fa-pen-fancy"></i> Essay</span>
+          </div>
+        </a>
+        <a class="h-card" href="#" data-category="notes">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>制作メモ：画像生成のパラメータ</h4>
+            <p>よく使う設定や学んだことのまとめ</p>
+            <span class="tag"><i class="fa-solid fa-sticky-note"></i> Note</span>
+          </div>
+        </a>
+        <a class="h-card" href="#" data-category="concepts">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>用語整理：固め表現の基本概念</h4>
+            <p>固め表現を理解するための基本的な用語を整理</p>
+            <span class="tag"><i class="fa-solid fa-lightbulb"></i> Concept</span>
+          </div>
+        </a>
+        <a class="h-card" href="#" data-category="concepts">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>テーマ整理：質感と変容</h4>
+            <p>質感表現と変容プロセスに関する概念の整理</p>
+            <span class="tag"><i class="fa-solid fa-lightbulb"></i> Concept</span>
+          </div>
+        </a>
+        <a class="h-card" href="#" data-category="archives">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>2024年のまとめ</h4>
+            <p>2024年に制作・公開したコンテンツの振り返り</p>
+            <span class="tag"><i class="fa-solid fa-box-archive"></i> Archive</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { renderHeader, renderFooter, initFilter } from '/main.js';
+    renderHeader('Library');
+    renderFooter();
+    initFilter('#library-filter', '#library-grid .h-card');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>カチコチなのは私のせい！？ — Aruomote Lab</title>
+  <meta name="description" content="ノベルゲーム「カチコチなのは私のせい！？」の紹介。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <style>
+    .game-hero {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, rgba(205, 90, 114, 0.4) 0%, rgba(50, 20, 30, 0.9) 100%), url('/assets/kachikochi_key.jpg') center/cover;
+      display: flex;
+      align-items: flex-end;
+      padding: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    .game-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .game-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #cccccc;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .game-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .meta-box {
+      background: var(--bg-card);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .meta-box h4 {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .meta-box p {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .screenshot-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .screenshot {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      aspect-ratio: 16/9;
+      background-color: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      overflow: hidden;
+    }
+
+    .screenshot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2rem;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary {
+      background: #cd5a72;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #ed6a82;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+
+  <main>
+    <article class="section" style="max-width: 900px; margin: 0 auto;">
+
+      <!-- Breadcrumb -->
+      <nav style="margin-bottom: 1.5rem; font-size: 0.9rem;">
+        <a href="/" style="color: var(--text-secondary);"><i class="fa-solid fa-house"></i> Home</a>
+        <span style="margin: 0 0.5rem; color: var(--border);">/</span>
+        <a href="/works/" style="color: var(--text-secondary);">Works</a>
+        <span style="margin: 0 0.5rem; color: var(--border);">/</span>
+        <span>カチコチなのは私のせい！？</span>
+      </nav>
+
+      <!-- Hero Section -->
+      <div class="game-hero">
+        <div class="game-hero-content">
+          <span class="tag"
+            style="background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.1);"><i
+              class="fa-solid fa-gamepad"></i> Novel Game</span>
+          <h1 class="game-title">カチコチなのは私のせい！？</h1>
+        </div>
+      </div>
+
+      <!-- Quick Info -->
+      <div class="game-meta">
+        <div class="meta-box">
+          <h4><i class="fa-solid fa-layer-group"></i> Genre</h4>
+          <p>ノベルゲーム</p>
+        </div>
+        <div class="meta-box">
+          <h4><i class="fa-solid fa-globe"></i> Platform</h4>
+          <p>Webブラウザ</p>
+        </div>
+        <div class="meta-box">
+          <h4><i class="fa-solid fa-calendar"></i> Status</h4>
+          <p>Released <span style="font-size:0.85em; color:var(--text-secondary); font-weight:normal;">(2025年12月)</span></p>
+        </div>
+      </div>
+
+      <!-- Overview -->
+      <div class="article-content">
+        <h2>About the Game</h2>
+        <p>
+          「カチコチなのは私のせい！？」は、AIで全て作成した百合っぽい固めノベルゲームです。既存のゲームエンジンを使わずにシステム構築したので、バグが多くて苦労しました。インストール不要で、ブラウザ上で手軽にプレイすることが可能です。
+        </p>
+
+        <!-- Screenshots -->
+        <h2>Screenshots</h2>
+        <div class="screenshot-grid">
+          <div class="screenshot">
+            <img src="/assets/kachikochi_ss01.jpg" alt="Screenshot 1">
+          </div>
+          <div class="screenshot">
+            <img src="/assets/kachikochi_ss02.jpg" alt="Screenshot 2">
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <a href="https://medusa-novel.netlify.app/" target="_blank" rel="noopener noreferrer"
+            class="btn btn-primary"><i class="fa-solid fa-play"></i> ブラウザでプレイする</a>
+          <a href="https://note.com/aruomote/n/n1891930cbd8e" target="_blank" rel="noopener noreferrer"
+            class="btn btn-secondary"><i class="fa-solid fa-pen-nib"></i> 制作記（note）を読む</a>
+        </div>
+      </div>
+
+    </article>
+  </main>
+
+  <script type="module">
+    import { renderHeader, renderFooter } from '/main.js';
+    renderHeader('Works');
+    renderFooter();
+  </script>
+</body>
+
+</html>

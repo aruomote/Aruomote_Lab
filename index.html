@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aruomote Lab — AIを活用した創作の拠点</title>
+  <meta name="description" content="AIを活用した創作活動を整理・公開する拠点サイト。作品、考察、ガイド、ツールを一つの場所に。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+  <!-- Header is rendered by JS -->
+
+  <main>
+
+    <!-- Key Visual Hero Section (Full width) -->
+    <section class="top-hero" style="position: relative; width: 100%; border-bottom: 1px solid var(--border); overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 45vh; text-align: center; margin-bottom: 4rem; background: linear-gradient(135deg, rgba(30, 30, 50, 0.5) 0%, rgba(10, 10, 20, 0.95) 100%), url('/assets/top_key.jpg') center/cover;">
+      
+      <!-- Placeholder Abstract Visual -->
+      <div style="position: absolute; inset: 0; background: linear-gradient(145deg, rgba(74, 90, 205, 0.1) 0%, transparent 100%); z-index: 0;"></div>
+      <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px); background-size: 24px 24px; z-index: 0;"></div>
+      
+      <!-- Text Content -->
+      <div style="position: relative; z-index: 1; padding: 2rem;">
+        <h1 class="hero-title" style="color: #ffffff; text-shadow: 0 4px 15px rgba(0,0,0,0.8); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; margin-bottom: 1rem; letter-spacing: 0.03em;">Aruomote Lab</h1>
+        <p class="hero-subtitle" style="color: rgba(255,255,255,0.85); text-shadow: 0 2px 8px rgba(0,0,0,0.8); font-size: clamp(0.9rem, 2vw, 1.2rem); font-weight: 400; letter-spacing: 0.15em; margin: 0; text-transform: uppercase;">A hub for AI-based creativity</p>
+      </div>
+    </section>
+
+    <!-- Works Showcase -->
+    <section class="section" style="margin-top: 1rem;">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-palette"></i> Works</h2>
+        <a href="/works/" class="section-more">すべて見る <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="card-grid cols-3">
+
+        <a class="content-card" href="/works/kachikochi.html">
+          <div class="thumb"><img src="/assets/kachikochi_key.jpg" alt="カチコチなのは私のせい！？" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-gamepad"></i> Game</span>
+            <h4>カチコチなのは私のせい！？</h4>
+            <p>固め表現をテーマにしたノベルゲーム</p>
+          </div>
+        </a>
+        <a class="content-card" href="/works/ulysses.html">
+          <div class="thumb"><img src="/assets/ulysses_key.webp" alt="ユリシーズ" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-gamepad"></i> Game</span>
+            <h4>ユリシーズ</h4>
+            <p>ティラノスクリプトで作成した固められノベルゲーム</p>
+          </div>
+        </a>
+        <a class="content-card" href="/works/stone-bride.html">
+          <div class="thumb"><img src="/assets/stonebride_key.webp" alt="石の花嫁" style="width:100%; height:100%; object-fit:cover; display:block;"></div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-gamepad"></i> Game</span>
+            <h4>石の花嫁</h4>
+            <p>AIをGMにしたブラウザTRPGゲーム</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         未公開セクション（一時非表示）
+         ※公開時に id="wip-sections" のdivごと外してください。
+    ========================================== -->
+    <div id="wip-sections" style="display: none;">
+    <!-- Library Showcase -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-book-open"></i> Library</h2>
+        <a href="/library/" class="section-more">すべて見る <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="card-grid cols-3">
+        <a class="content-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-pen"></i> Essay</span>
+            <h4>固め表現の考察：質感の差異</h4>
+            <p>素材ごとの物理的・視覚的な見え方について</p>
+          </div>
+        </a>
+        <a class="content-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-folder"></i> Concept</span>
+            <h4>Katame3D 世界観設定資料</h4>
+            <p>ゲームプロジェクトの根幹となる世界観設定</p>
+          </div>
+        </a>
+        <a class="content-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-file-lines"></i> Note</span>
+            <h4>AI画像生成のパラメータメモ</h4>
+            <p>特定の質感を出すための実験・設定値のログ</p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Guide Showcase -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-signs-post"></i> Guide</h2>
+        <a href="/guide/" class="section-more">すべて見る <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+      <div class="card-grid cols-3">
+        <a class="content-card" href="/guide/ai-generators.html">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-chart-bar"></i> Analysis</span>
+            <h4>固め向け画像生成AIサービス比較</h4>
+            <p>各サービスの機能・品質・NSFW度を徹底比較したチャート</p>
+          </div>
+        </a>
+        <a class="content-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-book"></i> Getting Started</span>
+            <h4>AI創作入門ガイド</h4>
+            <p>はじめてAIを利用する際に必要な環境と基礎知識</p>
+          </div>
+        </a>
+        <a class="content-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <span class="tag"><i class="fa-solid fa-wrench"></i> Workflow</span>
+            <h4>加筆・修正ワークフロー</h4>
+            <p>AIで出力した画像を理想の形に修正する手順</p>
+          </div>
+        </a>
+      </div>
+    </section>
+    </div>
+
+    <!-- Links -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-arrow-up-right-from-square"></i> Links</h2>
+      </div>
+      <div class="link-chips">
+        <a href="https://x.com/aruomoteomote" target="_blank" rel="noopener noreferrer" class="link-chip"><i class="fa-brands fa-x-twitter"></i> X / Twitter</a>
+        <a href="https://www.pixiv.net/users/6813502" target="_blank" rel="noopener noreferrer" class="link-chip"><i class="fa-solid fa-paintbrush"></i> pixiv</a>
+        <a href="https://github.com/aruomote" target="_blank" rel="noopener noreferrer" class="link-chip"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://note.com/aruomote" target="_blank" rel="noopener noreferrer" class="link-chip"><i class="fa-solid fa-pen-nib"></i> note</a>
+        <a href="https://www.dlsite.com/aix/circle/profile/=/maker_id/RG01022046.html" target="_blank" rel="noopener noreferrer" class="link-chip"><i class="fa-solid fa-store"></i> DLsite</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer is rendered by JS -->
+
+  <script type="module">
+    import { renderHeader, renderFooter } from '/main.js';
+    renderHeader('Home');
+    renderFooter();
+  </script>
+</body>
+
+</html>

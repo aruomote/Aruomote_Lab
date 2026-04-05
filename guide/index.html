@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guide — Aruomote Lab</title>
+  <meta name="description" content="AI創作の始め方、ワークフロー、ツール紹介など、制作に役立つガイド。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+  <main>
+    <div class="page-header">
+      <h1 class="page-title">Guide</h1>
+      <p class="page-desc">AI創作の始め方、ワークフロー、ツール紹介など、制作に役立つ情報をまとめています。</p>
+    </div>
+
+    <!-- Categories Overview -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-regular fa-compass"></i> カテゴリ</h2>
+      </div>
+      <div class="card-grid cols-4">
+        <a class="category-card" href="#">
+          <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h3 class="card-title">Getting Started</h3>
+          <p class="card-desc">AI創作を始めるための基礎知識</p>
+        </a>
+        <a class="category-card" href="#">
+          <div class="card-icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3 class="card-title">Workflow</h3>
+          <p class="card-desc">制作フローと考え方</p>
+        </a>
+        <a class="category-card" href="#">
+          <div class="card-icon"><i class="fa-solid fa-wrench"></i></div>
+          <h3 class="card-title">Tools</h3>
+          <p class="card-desc">おすすめのツールとサービス</p>
+        </a>
+        <a class="category-card" href="#">
+          <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+          <h3 class="card-title">Tips</h3>
+          <p class="card-desc">制作に役立つヒント集</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Guide Articles -->
+    <section class="section">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fa-solid fa-book-open"></i> ガイド記事</h2>
+      </div>
+      <div class="card-grid cols-2">
+        <a class="h-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>AI画像生成入門</h4>
+            <p>AI画像生成を始めるために必要な知識と準備</p>
+            <span class="tag"><i class="fa-solid fa-rocket"></i> Getting Started</span>
+          </div>
+        </a>
+        <a class="h-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>プロンプトの書き方</h4>
+            <p>意図した画像を生成するためのプロンプト技術</p>
+            <span class="tag"><i class="fa-solid fa-lightbulb"></i> Tips</span>
+          </div>
+        </a>
+        <a class="h-card" href="/guide/ai-generators.html">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>固め向け画像生成AIサービス比較</h4>
+            <p>主要なAI画像生成サービスを「固め表現向け」に徹底比較</p>
+            <span class="tag"><i class="fa-solid fa-wrench"></i> Tools</span>
+          </div>
+        </a>
+        <a class="h-card" href="#">
+          <div class="thumb">Image</div>
+          <div class="info">
+            <h4>AI創作のワークフロー</h4>
+            <p>アイデア出しから完成まで、制作の流れを解説</p>
+            <span class="tag"><i class="fa-solid fa-diagram-project"></i> Workflow</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    import { renderHeader, renderFooter } from '/main.js';
+    renderHeader('Guide');
+    renderFooter();
+  </script>
+</body>
+
+</html>
