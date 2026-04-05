@@ -2,12 +2,13 @@
 
 /** Render the site header */
 export function renderHeader(activePage = '') {
+  const base = import.meta.env.BASE_URL;
   const nav = [
-    { label: 'Home', href: '/' },
-    { label: 'Works', href: '/works/' },
-    // { label: 'Library', href: '/library/' },
-    // { label: 'Guide', href: '/guide/' },
-    { label: 'About', href: '/about/' },
+    { label: 'Home', href: base },
+    { label: 'Works', href: `${base}works/` },
+    // { label: 'Library', href: `${base}library/` },
+    // { label: 'Guide', href: `${base}guide/` },
+    { label: 'About', href: `${base}about/` },
   ];
 
   const navLinks = nav.map(item => {
@@ -19,7 +20,7 @@ export function renderHeader(activePage = '') {
   header.className = 'site-header';
   header.innerHTML = `
     <div class="header-inner">
-      <a href="/" class="site-logo">
+      <a href="${base}" class="site-logo">
         <div class="logo-mark">A</div>
         <span class="logo-text">Aruomote Lab</span>
       </a>
